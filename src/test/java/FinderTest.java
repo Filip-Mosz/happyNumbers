@@ -28,4 +28,11 @@ public class FinderTest {
         assertFalse(Finder.find(number));
     }
 
+    @Test
+    public void isSquareExceptZeroWorking(){
+        assertEquals(0, Finder.squareExceptZero(0));
+        assertEquals(4, Finder.squareExceptZero(2));
+        assertEquals(9, Finder.squareExceptZero(-3));
+    }
+
 }
