@@ -35,4 +35,12 @@ public class FinderTest {
         assertEquals(9, Finder.squareExceptZero(-3));
     }
 
+    @Test
+    public void isSquareEachDigitAndSumWorking(){
+        assertEquals(1, Finder.squareEachDigitAndSum(1));
+        assertEquals(26, Finder.squareEachDigitAndSum(15));
+        assertEquals(117, Finder.squareEachDigitAndSum(69));
+        assertEquals(83, Finder.squareEachDigitAndSum(119));
+    }
+
 }

@@ -27,22 +27,21 @@ public class Finder {
         return false;
     }
 
-    public static int squareEachDigitAndSum(int number) {
+    public static int squareEachDigitAndSum(int number) { //NullPointer caused by using Integer.getInteger() instead of !
 // number to String
 //        then String.length(), which gives length of table for digits
 //        then each character to int and square then to table
 //        finally sum everything and return
 
         String stringifiedNumber = String.valueOf(number);
-        List<Integer> listOfDigits = new LinkedList<>();
         int sum = 0;
 
-//        for(int i=0; i < stringifiedNumber.length(); i++){
-//            listOfDigits.add(squareExceptZero(Integer.getInteger(String.valueOf(stringifiedNumber.charAt(i)))));
-//            System.out.println("tabela: (powinna mieć 1 wpis)" + listOfDigits);
-//        }
         for(int i=0; i < stringifiedNumber.length(); i++){
-            sum+= squareExceptZero(Integer.getInteger(String.valueOf(stringifiedNumber.charAt(i))));
+            sum+= squareExceptZero(Integer.parseInt(String.valueOf(stringifiedNumber.charAt(i)))); //here is nullpointer
+
+//            String StringAtI = String.valueOf(stringifiedNumber.charAt(i));
+//            int digitAtI = Integer.parseInt(StringAtI);
+//            sum = sum+digitAtI;
             System.out.println("digit added");
         }
 //wrzuca do listy, ale czy potrzebnie? Zmienna plus wynik metody potęgującej lepszy?
