@@ -3,6 +3,13 @@ import java.util.Set;
 
 public class Finder {
 
+    /**
+     * Finds if given number is a "happy number".
+     * Which means it eventually reaches 1 when replaced by the sum of the square of each digit.
+     *
+     * @param number
+     * @return true if given number is "happy" else returns false
+     */
     public static boolean find(int number) {
 //add to set
 //        if set.add() returns true, keep going
@@ -44,7 +51,7 @@ public class Finder {
         return sum;
     }
 
-    public static int squareExceptZero(int number){
+    private static int squareExceptZero(int number){
 //        easier that way than catching exception
         if(number == 0){
             return 0;

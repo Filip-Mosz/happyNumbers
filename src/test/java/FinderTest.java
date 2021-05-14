@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -29,14 +30,7 @@ public class FinderTest {
     }
 
     @Test
-    public void isSquareExceptZeroWorking(){
-        assertEquals(0, Finder.squareExceptZero(0));
-        assertEquals(4, Finder.squareExceptZero(2));
-        assertEquals(9, Finder.squareExceptZero(-3));
-    }
-
-    @Test
-    public void isSquareEachDigitAndSumWorking(){ //effect of paranoia while searching for cause of NullPointer
+    public void isSquareEachDigitAndSumWorking(){
         assertEquals(1, Finder.squareEachDigitAndSum(1));
         assertEquals(26, Finder.squareEachDigitAndSum(15));
         assertEquals(117, Finder.squareEachDigitAndSum(69));
