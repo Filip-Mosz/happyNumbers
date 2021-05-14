@@ -36,7 +36,7 @@ public class FinderTest {
     }
 
     @Test
-    public void isSquareEachDigitAndSumWorking(){
+    public void isSquareEachDigitAndSumWorking(){ //effect of paranoia while searching for cause of NullPointer
         assertEquals(1, Finder.squareEachDigitAndSum(1));
         assertEquals(26, Finder.squareEachDigitAndSum(15));
         assertEquals(117, Finder.squareEachDigitAndSum(69));
