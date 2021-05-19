@@ -20,6 +20,9 @@ public class Finder {
         if (number == 0) {
             return false;
         }
+        if (number == 1){
+            return true;
+        }
         int a1 = number;
         setOfResults.add(number);
 
