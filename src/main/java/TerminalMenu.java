@@ -1,4 +1,5 @@
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TerminalMenu {
@@ -16,7 +17,12 @@ public class TerminalMenu {
                 case ("1"): {
                     System.out.println("Type your number");
 //                    Finder.find(optionScanner.nextInt());
-                    isHappy(optionScanner.nextInt());//tu metoda do sprawdzania wesolości
+                    try {
+                    isHappy(optionScanner.nextInt());
+                    }catch (InputMismatchException e){
+                        System.out.println("You typed to big number; I have my limitations");
+                        separator();
+                    }
                     break;
                 }
 
@@ -46,6 +52,8 @@ public class TerminalMenu {
 
     private void isHappy(int number){
 
+        if (number > Integer.MAX_VALUE) System.out.println("It's too big");
+
         if (Finder.find(number)){
             System.out.println("Given number is Happy");
         }else{
@@ -64,6 +72,7 @@ public class TerminalMenu {
                 System.out.print('*');
             }
         }
+        System.out.println(System.lineSeparator());
     }
 
 }
