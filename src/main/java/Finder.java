@@ -7,7 +7,7 @@ public class Finder {
      * Finds if given number is a "happy number".
      * Which means it eventually reaches 1 when replaced by the sum of the square of each digit.
      *
-     * @param number
+     * @param number number given by user of method
      * @return true if given number is "happy" else returns false
      */
     public static boolean find(int number) {
@@ -21,11 +21,10 @@ public class Finder {
             return false;
         }
         int a1 = number;
-        int a2 = 0;
         setOfResults.add(number);
 
         while (true){
-        a2 =squareEachDigitAndSum(a1);
+        int a2 =squareEachDigitAndSum(a1);
             if(!setOfResults.add(a2)){
                 return false;
             }else {
