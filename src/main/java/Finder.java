@@ -102,4 +102,16 @@ public class Finder {
 
     }
 
+    public static List<Integer> happyOfRange(int start, int end){
+        List<Integer> result = new LinkedList<>();
+
+        for (int i = start; i <= end; i++){
+            if(find(i)){
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+
 }
