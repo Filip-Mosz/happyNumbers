@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FinderTest {
@@ -36,5 +38,19 @@ public class FinderTest {
         assertEquals(117, Finder.squareEachDigitAndSum(69));
         assertEquals(83, Finder.squareEachDigitAndSum(119));
     }
+
+    @Test
+    public void isClosestHappyWorking(){
+        assertEquals(List.of(100), Finder.closestHappy(99));
+        assertEquals(List.of(989), Finder.closestHappy(982));
+//        assertEquals(0, Finder.closestHappy());
+//        assertEquals(0, Finder.closestHappy());
+//        assertEquals(0, Finder.closestHappy());
+//        assertEquals(0, Finder.closestHappy());
+//        assertEquals(0, Finder.closestHappy());
+        assertEquals(List.of(653,655), Finder.closestHappy(654));
+        assertEquals(List.of(13,19), Finder.closestHappy(16));
+    }
+
 
 }

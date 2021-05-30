@@ -16,13 +16,17 @@ public class TerminalMenu {
             switch (option) {
                 case ("1"): {
                     System.out.println("Type your number");
-//                    Finder.find(optionScanner.nextInt());
-                    try {
+                    try { //changing Finder.find parameter from int to long won't do
                     isHappy(optionScanner.nextInt());
                     }catch (InputMismatchException e){
                         System.out.println("You typed to big number; I have my limitations");
                         separator();
                     }
+                    break;
+                }
+                case ("2"): {
+                    System.out.println("Type your number");
+                    closestHappy(optionScanner.nextInt());
                     break;
                 }
 
@@ -46,13 +50,12 @@ public class TerminalMenu {
 
     private static void showOptions() {
         System.out.println("'1' type number to find if it's happy");
+        System.out.println("'2' type number to find the closest happy number");
 
         System.out.println("'q' or 'exit' to quit program");
     }
 
     private void isHappy(int number){
-
-        if (number > Integer.MAX_VALUE) System.out.println("It's too big");
 
         if (Finder.find(number)){
             System.out.println("Given number is Happy");
@@ -60,6 +63,20 @@ public class TerminalMenu {
             System.out.println("Given number is Sad; sadly");
         }
         separator();
+    }
+
+    private void closestHappy(int number){
+        StringBuilder answer = new StringBuilder("The closest happy number");
+
+        if(Finder.closestHappy(number).size() == 1){
+            answer.append(" is: ");
+            answer.append(Finder.closestHappy(number));
+        } else{
+            answer.append("s are: ");
+            answer.append(Finder.closestHappy(number));
+        }
+
+        System.out.println(answer);
     }
 
     private void separator(){
