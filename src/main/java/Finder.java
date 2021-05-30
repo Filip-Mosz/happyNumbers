@@ -50,7 +50,14 @@ public class Finder {
         int sum = 0;
 
         for (int i = 0; i < stringifiedNumber.length(); i++) {
-            sum += squareExceptZero(Integer.parseInt(String.valueOf(stringifiedNumber.charAt(i))));
+//            sum += squareExceptZero(Integer.parseInt(String.valueOf(stringifiedNumber.charAt(i))));
+            int element;
+            try{
+                  element = Integer.parseInt(String.valueOf(stringifiedNumber.charAt(i))) ;
+            }   catch(NumberFormatException e){
+                    element = 0;
+            }
+            sum += squareExceptZero(element);
         }
 
         return sum;
@@ -102,11 +109,11 @@ public class Finder {
 
     }
 
-    public static List<Integer> happyOfRange(int start, int end){
+    public static List<Integer> happyOfRange(int start, int end) {
         List<Integer> result = new LinkedList<>();
 
-        for (int i = start; i <= end; i++){
-            if(find(i)){
+        for (int i = start; i <= end; i++) {
+            if (find(i)) {
                 result.add(i);
             }
         }

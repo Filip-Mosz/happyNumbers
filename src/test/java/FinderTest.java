@@ -12,6 +12,7 @@ public class FinderTest {
     @Test
     public void isHappy() {
         assertTrue(Finder.find(13));
+        assertTrue(Finder.find(-13));
     }
 
     @Test
@@ -49,11 +50,11 @@ public class FinderTest {
 
     @Test
     public void isHappyOfRangeWorking() {
-        assertEquals(List.of(70, 79, 82, 86, 91, 94, 97, 103), Finder.happyOfRange(69, 104));
+        assertEquals(List.of(70, 79, 82, 86, 91, 94, 97, 100, 103), Finder.happyOfRange(69, 104));
         assertEquals(List.of(901, 904, 907, 910, 912, 913, 921,
-                923, 931, 932, 940, 946, 964, 970, 973, 989, 998),
+                923, 931, 932, 937, 940, 946, 964, 970, 973, 989, 998),
                 Finder.happyOfRange(900, 999));
-        assertEquals(List.of(),Finder.happyOfRange(950,960));
+        assertEquals(List.of(), Finder.happyOfRange(950, 960));
     }
 
 }
