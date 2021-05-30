@@ -58,21 +58,29 @@ public class FinderTest {
 
     @Test
     public void isPrimeAndHappy() {
-        assertTrue(Finder.primeAndHappy(7));
-        assertTrue(Finder.primeAndHappy(31));
-        assertTrue(Finder.primeAndHappy(79));
+        assertTrue(Finder.isPrimeAndHappy(7));
+        assertTrue(Finder.isPrimeAndHappy(31));
+        assertTrue(Finder.isPrimeAndHappy(79));
     }
 
     @Test
     public void isNotPrimeAndHappy() {
-        assertFalse(Finder.primeAndHappy(11));
-        assertFalse(Finder.primeAndHappy(37));
-        assertFalse(Finder.primeAndHappy(67));
+        assertFalse(Finder.isPrimeAndHappy(11));
+        assertFalse(Finder.isPrimeAndHappy(37));
+        assertFalse(Finder.isPrimeAndHappy(67));
+    }
+
+    @Test
+    public void isClosestPrimeAndHappyWorking() {
+        assertEquals(List.of(19, 23), Finder.closestPrimeHappy(21));
+        assertEquals(List.of(31), Finder.closestPrimeHappy(50));
+        assertEquals(List.of(31, 79), Finder.closestPrimeHappy(55));
+        assertEquals(List.of(79), Finder.closestPrimeHappy(65));
     }
 
     @Test
     public void isPrimeAndHappyOfRangeWorking() {
-        assertEquals(List.of(7, 19, 23, 31, 79, 97), Finder.primeAndHappyOfRange(2, 99));
+        assertEquals(List.of(7, 13, 19, 23, 31, 79, 97), Finder.primeAndHappyOfRange(2, 99));
     }
 
 }

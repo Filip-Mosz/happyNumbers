@@ -49,6 +49,26 @@ public class TerminalMenu {
                     primeAndHappy(optionScanner.nextInt());
                     break;
                 }
+                case ("5"): {
+                    System.out.println("Type your number");
+                    closestPrimeHappy(optionScanner.nextInt());
+                    break;
+                }
+                case ("6"): {
+                    int start;
+                    int end;
+                    do {
+                        System.out.println("Type start of range");
+                        start = optionScanner.nextInt();
+                        System.out.println("Type end of range");
+                        end = optionScanner.nextInt();
+
+                    } while (start >= end);
+
+                    primeAndHappyOfRange(start, end);
+
+                    break;
+                }
 
                 case ("q"):
 
@@ -72,6 +92,9 @@ public class TerminalMenu {
         System.out.println("'1' type number to find if it's happy");
         System.out.println("'2' type number to find the closest happy number");
         System.out.println("'3' type 2 numbers to find all happy numbers between them");
+        System.out.println("'4' type number to find if it's prime and happy" );
+        System.out.println("'5' type number to find the closest prime happy number");
+        System.out.println("'6' type 2 numbers to find all happy prime numbers between them");
 
         System.out.println("'q' or 'exit' to quit program");
     }
@@ -99,6 +122,19 @@ public class TerminalMenu {
         System.out.println(answer);
     }
 
+    private void closestPrimeHappy(int number) {
+        StringBuilder answer = new StringBuilder("The closest prime happy number");
+
+        if (Finder.closestPrimeHappy(number).size() == 1) {
+            answer.append(" is: ");
+        } else {
+            answer.append("s are: ");
+        }
+        answer.append(Finder.closestPrimeHappy(number));
+
+        System.out.println(answer);
+    }
+
     private void happyOfRange(int start, int end) {
         if (Finder.happyOfRange(start, end).isEmpty()) {
             System.out.println("There are no happy numbers in given range");
@@ -108,14 +144,21 @@ public class TerminalMenu {
         }
     }
 
-    // TODO: 30.05.2021 merge with isHappy
     private void primeAndHappy(int number){
-        if (Finder.primeAndHappy(number)) {
+        if (Finder.isPrimeAndHappy(number)) {
             System.out.println("Given number is Happy");
         } else {
             System.out.println("Given number is Sad; sadly");
         }
         separator();
+    }
+    private void primeAndHappyOfRange(int start, int end) {
+        if (Finder.primeAndHappyOfRange(start, end).isEmpty()) {
+            System.out.println("There are no happy prime numbers in given range");
+        } else {
+            System.out.println("These are happy prime number of range given by you: " +
+                    Finder.primeAndHappyOfRange(start, end));
+        }
     }
 
     private void separator() {

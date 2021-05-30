@@ -108,6 +108,7 @@ public class Finder {
 
     }
 
+
     public static List<Integer> happyOfRange(int start, int end) {
         List<Integer> result = new LinkedList<>();
 
@@ -120,12 +121,49 @@ public class Finder {
         return result;
     }
 
-    public static boolean primeAndHappy(int number) {
+    public static boolean isPrimeAndHappy(int number) {
         return isHappy(number) && Prime.isPrime(number);
     }
 
+    public static List<Integer> closestPrimeHappy(int number){
+        int higher = number + 1;
+        int lower = number - 1;
+        List<Integer> result = new LinkedList<>();
+
+        if (isPrimeAndHappy(number)) {
+            return List.of(number);
+        }
+
+        while (true) {
+            if (isPrimeAndHappy(lower)) {
+                result.add(lower);
+            }
+            if (isPrimeAndHappy(higher)) {
+                result.add(higher);
+            }
+
+            if (result.isEmpty()) {
+                higher += 1;
+                lower -= 1;
+            } else {
+                return result;
+            }
+
+        }
+
+    }
+
+
     public static List<Integer> primeAndHappyOfRange(int start, int end) {
         List<Integer> result = new LinkedList<>();
+
+        List<Integer> happyNumbers = happyOfRange(start, end);
+
+        for (Integer happyNumber : happyNumbers) {
+            if (Prime.isPrime(happyNumber)) {
+                result.add(happyNumber);
+            }
+        }
 
         return result;
     }
