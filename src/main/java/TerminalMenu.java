@@ -122,19 +122,6 @@ public class TerminalMenu {
         System.out.println(answer);
     }
 
-    private void closestPrimeHappy(int number) {
-        StringBuilder answer = new StringBuilder("The closest prime happy number");
-
-        if (Finder.closestPrimeHappy(number).size() == 1) {
-            answer.append(" is: ");
-        } else {
-            answer.append("s are: ");
-        }
-        answer.append(Finder.closestPrimeHappy(number));
-
-        System.out.println(answer);
-    }
-
     private void happyOfRange(int start, int end) {
         if (Finder.happyOfRange(start, end).isEmpty()) {
             System.out.println("There are no happy numbers in given range");
@@ -152,6 +139,20 @@ public class TerminalMenu {
         }
         separator();
     }
+
+    private void closestPrimeHappy(int number) {
+        StringBuilder answer = new StringBuilder("The closest prime happy number");
+
+        if (Finder.closestPrimeHappy(number).size() == 1) {
+            answer.append(" is: ");
+        } else {
+            answer.append("s are: ");
+        }
+        answer.append(Finder.closestPrimeHappy(number));
+
+        System.out.println(answer);
+    }
+
     private void primeAndHappyOfRange(int start, int end) {
         if (Finder.primeAndHappyOfRange(start, end).isEmpty()) {
             System.out.println("There are no happy prime numbers in given range");

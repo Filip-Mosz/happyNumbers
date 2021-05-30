@@ -1,5 +1,6 @@
 
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -11,13 +12,6 @@ public class Main {
         System.out.println("Hello" + System.lineSeparator());
 
         System.out.println("Type a number and I will tell you if it is a Happy number.");
-//        int scannedResult = scan.nextInt();
-//
-//        if(Finder.find(scannedResult)){
-//            System.out.println("Given number is Happy");
-//        }else{
-//            System.out.println("Given number is Sad; sadly");
-//        }
 
         menu.createMenu();
 
