@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -11,25 +10,25 @@ public class FinderTest {
 
     @Test
     public void isHappy() {
-        assertTrue(Finder.find(13));
-        assertTrue(Finder.find(-13));
+        assertTrue(Finder.isHappy(13));
+        assertTrue(Finder.isHappy(-13));
     }
 
     @Test
     public void isSad() {
-        assertFalse(Finder.find(85));
+        assertFalse(Finder.isHappy(85));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {226, 280, 301, 319, 622, 635, 899, 100})
     public void areHappy(int number) {
-        assertTrue(Finder.find(number));
+        assertTrue(Finder.isHappy(number));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {0, 5, 30, 191, 200, 380, 403, 505, 999})
     public void areSad(int number) {
-        assertFalse(Finder.find(number));
+        assertFalse(Finder.isHappy(number));
     }
 
     @Test
@@ -55,6 +54,25 @@ public class FinderTest {
                 923, 931, 932, 937, 940, 946, 964, 970, 973, 989, 998),
                 Finder.happyOfRange(900, 999));
         assertEquals(List.of(), Finder.happyOfRange(950, 960));
+    }
+
+    @Test
+    public void isPrimeAndHappy() {
+        assertTrue(Finder.primeAndHappy(7));
+        assertTrue(Finder.primeAndHappy(31));
+        assertTrue(Finder.primeAndHappy(79));
+    }
+
+    @Test
+    public void isNotPrimeAndHappy() {
+        assertFalse(Finder.primeAndHappy(11));
+        assertFalse(Finder.primeAndHappy(37));
+        assertFalse(Finder.primeAndHappy(67));
+    }
+
+    @Test
+    public void isPrimeAndHappyOfRangeWorking() {
+        assertEquals(List.of(7, 19, 23, 31, 79, 97), Finder.primeAndHappyOfRange(2, 99));
     }
 
 }

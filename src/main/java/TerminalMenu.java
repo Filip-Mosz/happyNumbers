@@ -30,8 +30,8 @@ public class TerminalMenu {
                     break;
                 }
                 case ("3"): {
-                    int start = 0;
-                    int end = 0;
+                    int start;
+                    int end;
                     do {
                         System.out.println("Type start of range");
                         start = optionScanner.nextInt();
@@ -42,6 +42,11 @@ public class TerminalMenu {
 
                     happyOfRange(start, end);
 
+                    break;
+                }
+                case ("4"): {
+                    System.out.println("Type thy number");
+                    primeAndHappy(optionScanner.nextInt());
                     break;
                 }
 
@@ -73,7 +78,7 @@ public class TerminalMenu {
 
     private void isHappy(int number) {
 
-        if (Finder.find(number)) {
+        if (Finder.isHappy(number)) {
             System.out.println("Given number is Happy");
         } else {
             System.out.println("Given number is Sad; sadly");
@@ -86,11 +91,10 @@ public class TerminalMenu {
 
         if (Finder.closestHappy(number).size() == 1) {
             answer.append(" is: ");
-            answer.append(Finder.closestHappy(number));
         } else {
             answer.append("s are: ");
-            answer.append(Finder.closestHappy(number));
         }
+        answer.append(Finder.closestHappy(number));
 
         System.out.println(answer);
     }
@@ -102,6 +106,16 @@ public class TerminalMenu {
             System.out.println("These are happy number of range given by you: " +
                     Finder.happyOfRange(start, end));
         }
+    }
+
+    // TODO: 30.05.2021 merge with isHappy
+    private void primeAndHappy(int number){
+        if (Finder.primeAndHappy(number)) {
+            System.out.println("Given number is Happy");
+        } else {
+            System.out.println("Given number is Sad; sadly");
+        }
+        separator();
     }
 
     private void separator() {

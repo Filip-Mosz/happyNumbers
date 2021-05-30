@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +12,7 @@ public class Finder {
      * @param number number given by user of method
      * @return true if given number is "happy" else returns false
      */
-    public static boolean find(int number) {
+    public static boolean isHappy(int number) {
 //add to set
 //        if set.add() returns true, keep going
 //        if set.add() returns false, number is sad
@@ -50,12 +49,12 @@ public class Finder {
         int sum = 0;
 
         for (int i = 0; i < stringifiedNumber.length(); i++) {
-//            sum += squareExceptZero(Integer.parseInt(String.valueOf(stringifiedNumber.charAt(i))));
             int element;
-            try{
-                  element = Integer.parseInt(String.valueOf(stringifiedNumber.charAt(i))) ;
-            }   catch(NumberFormatException e){
-                    element = 0;
+            try {
+                element = Integer.parseInt(String.valueOf(stringifiedNumber.charAt(i)));
+            } catch (NumberFormatException e) {
+                element = 0;
+//      negative number squared gives positive number so it's OK
             }
             sum += squareExceptZero(element);
         }
@@ -86,15 +85,15 @@ public class Finder {
         int lower = number - 1;
         List<Integer> result = new LinkedList<>();
 
-        if (find(number)) {
+        if (isHappy(number)) {
             return List.of(number);
         }
 
         while (true) {
-            if (find(lower)) {
+            if (isHappy(lower)) {
                 result.add(lower);
             }
-            if (find(higher)) {
+            if (isHappy(higher)) {
                 result.add(higher);
             }
 
@@ -113,10 +112,20 @@ public class Finder {
         List<Integer> result = new LinkedList<>();
 
         for (int i = start; i <= end; i++) {
-            if (find(i)) {
+            if (isHappy(i)) {
                 result.add(i);
             }
         }
+
+        return result;
+    }
+
+    public static boolean primeAndHappy(int number) {
+        return isHappy(number) && Prime.isPrime(number);
+    }
+
+    public static List<Integer> primeAndHappyOfRange(int start, int end) {
+        List<Integer> result = new LinkedList<>();
 
         return result;
     }
